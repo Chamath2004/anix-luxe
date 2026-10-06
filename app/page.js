@@ -43,7 +43,7 @@ export default function Page() {
         <section className="hero">
           <div className="hero-sticky">
             <div className="watch-frame">
-              <video className="watch-image watch-video" src="/anix-luxe/hero-watch.mp4" autoPlay muted loop playsInline preload="auto" disablePictureInPicture />
+              <video className="watch-image watch-video" poster="/anix-luxe/hero-poster.jpg" muted playsInline preload="auto" disablePictureInPicture />
             </div>
             <div className="hero-top"><p className="eyebrow">The Watch Collections</p></div>
             <div className="hero-copy">
