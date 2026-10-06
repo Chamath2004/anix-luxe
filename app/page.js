@@ -94,10 +94,14 @@ export default function Page() {
             <div className="grid" style={{ marginTop: 28 }}>
               {list.map((p) => (
                 <article key={p.id} className="p-card">
-                  <div className="im"><img loading="lazy" src={p.img} alt={p.name} /></div>
+                  <div className="im">
+                    {p.tag && <span className="badge">{p.tag}</span>}
+                    <img loading="lazy" src={p.img} alt={p.name} />
+                    <button className="quick-add">Add to Bag +</button>
+                  </div>
                   <div className="p-body"><small>{p.brand}</small><h3>{p.name}</h3>
-                    <div className="price"><strong>{p.price}</strong></div>
-                    <button>Add to Bag +</button>
+                    <span className="spec">{p.spec} · 1–2 yr warranty</span>
+                    <div className="price"><strong>{p.price}</strong>{p.old && <s>{p.old}</s>}</div>
                   </div>
                 </article>
               ))}

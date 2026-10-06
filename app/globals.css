@@ -69,16 +69,24 @@ em{font-family:var(--serif);font-style:italic;font-weight:300}
 .mask-line>span{display:block;transform:translateY(110%)}
 .section{padding:90px 0}
 
-/* product grid — white Cartier cards */
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.p-card{background:var(--card);padding:26px 22px;text-align:center;display:flex;flex-direction:column;gap:10px}
-.p-card .im{aspect-ratio:1/1;overflow:hidden;background:#f3efe4}
-.p-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.19,1,.22,1)}
-.p-card:hover img{transform:scale(1.05)}
-.p-body small{color:var(--gold);letter-spacing:.24em;font-size:10px}
-.p-body h3{font-family:var(--serif);font-weight:500;font-size:22px;margin:6px 0}
-.price{display:flex;justify-content:center;gap:10px;align-items:baseline}
-.price button{margin-top:8px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:11px 22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+/* product grid — modern maison cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;background:transparent;border:0}
+.p-card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;text-align:center;display:flex;flex-direction:column;transition:transform .5s var(--ease, cubic-bezier(.19,1,.22,1)),box-shadow .5s,border-color .5s}
+.p-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(25,24,23,.14);border-color:rgba(25,24,23,.24)}
+.p-card .im{position:relative;aspect-ratio:1/1;overflow:hidden;background:linear-gradient(160deg,#f5f1e6,#e9e1cf)}
+.p-card img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.19,1,.22,1)}
+.p-card:hover img{transform:scale(1.07)}
+.badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--ink);color:var(--bg);font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+.quick-add{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;border:0;border-radius:999px;padding:13px;background:rgba(20,19,18,.92);color:#f6f3ec;font-size:10px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px);opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s,background .3s}
+.p-card:hover .quick-add{opacity:1;transform:none}
+.quick-add:hover{background:var(--gold)}
+.p-body{padding:20px 18px 22px;display:flex;flex-direction:column;gap:6px}
+.p-body small{color:var(--gold);letter-spacing:.26em;font-size:9px}
+.p-body h3{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.15;margin:2px 0}
+.p-body .spec{color:var(--muted);font-size:11px;letter-spacing:.04em}
+.price{display:flex;justify-content:center;gap:10px;align-items:baseline;margin-top:4px}
+.price strong{font-size:16px}
+.price s{color:var(--muted);font-size:12px}
 
 /* services band */
 .svc{background:var(--ink);color:var(--bg);border-radius:24px;margin:0 12px}
@@ -114,12 +122,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   .cbody{padding:28px 20px}
   .cbody h2{font-size:clamp(30px,8.5vw,38px)}
   .section{padding:56px 0}
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .p-card{padding:14px 10px;gap:8px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .p-card{border-radius:16px}
+  .p-body{padding:14px 12px 16px}
   .p-body h3{font-size:16px}
   .p-body small{font-size:8px}
+  .p-body .spec{font-size:10px}
   .price strong{font-size:14px}
-  .price button{width:100%;padding:12px 10px}
+  .badge{font-size:8px;padding:6px 10px}
+  .quick-add{opacity:1;transform:none;padding:12px 8px}
   .svc{margin:0 8px;border-radius:18px}
   .svc .wrap{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}
   footer .wrap{flex-direction:column}
