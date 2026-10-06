@@ -37,6 +37,20 @@ export default function ScrollRig() {
           onLeave: () => video.pause(), onLeaveBack: () => video.pause()
         });
       }
+      const mm = gsap.matchMedia();
+      mm.add("(max-width: 640px)", () => {
+        const m = gsap.timeline({
+          scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom bottom", scrub: 1 }
+        });
+        m.fromTo(".watch-image", { scale: 1.08 }, { scale: 1, ease: "none" }, 0)
+          .to(".watch-frame",
+            { width: "80vw", height: "44vh", borderRadius: "36px", ease: "none" }, 0)
+          .fromTo(".hero-copy", { y: 60, opacity: 0 }, { y: 0, opacity: 1, ease: "none" }, 0.45)
+          .fromTo(".hero-top", { opacity: 1, y: 0 }, { opacity: 0, y: -30, ease: "none" }, 0.25)
+          .to(".watch-frame",
+            { width: "52vw", height: "30vh", borderRadius: "60px", y: "-10vh", ease: "none" }, 0.65);
+      });
+      mm.add("(min-width: 641px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom bottom", scrub: 1 }
       });
@@ -47,6 +61,7 @@ export default function ScrollRig() {
         .fromTo(".hero-top", { opacity: 1, y: 0 }, { opacity: 0, y: -40, ease: "none" }, 0.25)
         .to(".watch-frame",
           { width: "11vw", height: "18vh", borderRadius: "100px", y: "-14vh", ease: "none" }, 0.65);
+      });
 
       // Text line masks
       gsap.utils.toArray(".mask-line > span").forEach((s) => {
